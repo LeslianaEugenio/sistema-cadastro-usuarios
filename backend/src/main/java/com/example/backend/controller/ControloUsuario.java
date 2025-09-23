@@ -23,7 +23,7 @@ public class ControloUsuario {
     }
 
     @GetMapping
-    public ResponseEntity<?> list(@RequestHeader("Aceso autorizado") String auth) {
+    public ResponseEntity<?> list(@RequestHeader("Acessoautorizado") String auth) {
         if(auth != null && auth.startsWith("Bearer ")) {
             String token = auth.substring(7);
             if(service.validate(token)) {
