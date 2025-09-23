@@ -1,31 +1,88 @@
-Sobre
-Esse projeto é meu treino de back-end com Spring Boot.  
-Ele faz cadastro, login com JWT e listagem de usuários protegida.  
+Projeto em Spring Boot criado para treinar a construção de uma API REST com autenticação baseada em JWT.
 
-Banco usado: H2 (temporário, em memória).  
-O código é simples, com variáveis curtas e comentários “à mão”.
+Tecnologias Utilizadas:
 
----
+Java 17+
 
- Endpoints:
+Spring Boot
 
-- POST /users → cadastrar usuário  
-- POST /auth/login → login, retorna token  
-- GET /users → lista todos usuários (precisa do token no header)
+Spring Security
 
- Uso:
+JWT (JSON Web Token)
 
-1. Rodar aplicação no IntelliJ ou VS Code  
-2. Testar endpoints com Postman/Insomnia  
-3. Sempre cadastrar antes de logar  
+Maven
+
+H2 Database (ou substituível por outro banco)
+
+Funcionalidades Implementadas:
+
+Cadastro de Usuário
+
+Login com geração de Token JWT
+
+Listagem de Usuários (rota protegida com token)
 
 
- Observações:
+ Autenticação:
 
-- Senhas em texto plano só pra treino  
-- Token expira em 1 hora  
-- Código simples 
-- Banco H2 reinicia a cada start da aplicação
-Os testes unitários estavam previstos, mas tive alguns problemas de configuração no ambiente (JUnit/Spring Test).
-Como o foco principal do projeto era a API em si, deixei registrado aqui que a aplicação funciona normalmente
-com cadastro, login com JWT e listagem de usuários.
+O login gera um token JWT.
+
+Para acessar as rotas protegidas, o token deve ser enviado no header da requisição.
+
+Exemplo de header:
+Key: Acessoautorizado
+
+Value: Bearer {seu_token_aqui}
+
+
+ Como Executar
+
+Clone o repositório
+
+git clone https://github.com/teu-usuario/teu-repo.git
+
+
+Abra no IntelliJ ou Eclipse.
+
+Execute a aplicação com Spring Boot (mvn spring-boot:run ou direto pela IDE).
+
+Acesse em:
+
+http://localhost:8080
+
+📖 Exemplos de Endpoints
+🔹 Cadastro de Usuário
+
+POST [/usuarios/cadastrar](http://localhost:8080/usuarios)
+Body (JSON):
+
+{
+  "nome": "Maria",
+  "email": "maria@email.com",
+  "senha": "123456"
+}
+
+🔹 Login
+
+POST [/auth/login](http://localhost:8080/geral/login)
+Body (JSON):
+
+{
+  "email": "maria@email.com",
+  "senha": "123456"
+}
+
+
+Resposta:
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR..."
+}
+
+🔹 Listagem de Usuários (Protegido)
+
+GET /[usuarios](http://localhost:8080/usuarios)
+Headers:
+
+Authorization: Bearer {token}
+Acessoautorizado: true
