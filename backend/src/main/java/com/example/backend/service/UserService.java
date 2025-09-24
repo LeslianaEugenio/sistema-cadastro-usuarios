@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+
+//classe onde vou escrever toda a lógica(regras de negócios), ela é chmada pelos controllers
 public class UserService {
 
     private final UserRepository repositorio;

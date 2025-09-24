@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "usuarios")
 
-//classe onde vou execcutar toda a logica, entidades do banco
+//representa as tabelas do banco de dados em forma de classes, quem usa ela é o repository
 public class Usuario {
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)

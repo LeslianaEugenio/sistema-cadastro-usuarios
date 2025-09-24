@@ -8,6 +8,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/geral")
+
+//classe que vai receber as minhas requisições HTTP geral e quem vai usar ela é o navegador
 public class ControloGeral {
 
     private final UserService service;

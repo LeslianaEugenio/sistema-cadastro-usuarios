@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
+//classe que vai receber as minhas requisições HTTP dos usuarios e quem vai usar ela é o navegador
 public class ControloUsuario {
 
     private final UserService service;
