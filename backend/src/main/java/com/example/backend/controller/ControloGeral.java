@@ -26,7 +26,7 @@ public class ControloGeral {
     }
 
     @GetMapping("/usuarios")
-    public ResponseEntity<List<Usuario>> listarUsuarios(@RequestHeader("Authorization") String auth) {
+    public ResponseEntity<List<Usuario>> listarUsuarios(@RequestHeader("Acessoautorizado") String auth) {
         if(auth != null && auth.startsWith("Bearer ")) {
             String token = auth.substring(7);
             if(service.validate(token)) {
