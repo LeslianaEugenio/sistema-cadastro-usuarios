@@ -38,6 +38,7 @@ public class UserService {
     }
 
     public boolean validate(String token) {
+
         return jwt.validateToken(token);
     }
 }
